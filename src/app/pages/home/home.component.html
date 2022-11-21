@@ -1,0 +1,27 @@
+<div class="container">
+    <h1 class="mt-5">Users</h1>
+    <input type="text"
+    class="form-control mb-3"
+    placeholder="Search user"
+    />
+    <div class="table-content">
+        <table class="table">
+            <thead>
+                <tr>
+                    <th [ngStyle]="{'width': '100px'}">#</th>
+                    <th [ngStyle]="{'width': '150px'}">Name</th>
+                    <th [ngStyle]="{'width': '150px'}">Username</th>
+                    <th [ngStyle]="{'width': '150px'}">Email</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let u of users " [ngStyle]="{'height':'100px'}">
+                    <td>{{u.id}}</td>
+                    <td>{{u.name}}</td>
+                    <td>{{u.username}}</td>
+                    <td>{{u.email}}</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
