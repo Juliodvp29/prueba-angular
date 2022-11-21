@@ -1,0 +1,39 @@
+.header{
+    width: 100%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 100;
+    background-color: #0085f1;
+}
+
+.nav-header{
+    height: 4rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-weight: 600;
+}
+
+.nav-header ul{
+    display: flex;
+    flex-direction: row;
+}
+
+
+.nav-header ul .nav_item{
+    padding: 0 1.3rem;
+    margin-top: 1.2rem; 
+    font-size: 1.2rem;
+    color: #FFFFFF;
+    cursor: pointer;
+}
+
+.nav_item {
+    margin-bottom: 1.5rem;
+  }
+
+  .nav_logo {
+    color: #FFFFFF;
+    padding: 0 1.3rem;
+  }
