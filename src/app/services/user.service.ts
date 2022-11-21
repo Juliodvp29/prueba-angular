@@ -1,14 +1,16 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { FetchAllUser, User } from '../interfaces/user.interface';
+import {  Data, User } from '../interfaces/user.interface';
 import { map } from 'rxjs/operators';
-import { Observable } from 'rxjs';
+import { Observable, ReplaySubject } from 'rxjs';
+
 
 @Injectable({
   providedIn: 'root'
 })
 export class UserService {
 
+  private message = new ReplaySubject<Data>(1);
   private url: string = "https://jsonplaceholder.typicode.com/users";
 
   constructor(private http: HttpClient) { }
@@ -28,6 +30,14 @@ export class UserService {
         return data;
       }))
     )
+  }
+
+  public get recibir() {
+    return this.message.asObservable()
+  }
+
+  public enviar(data: Data): void {
+    this.message.next(data);
   }
 
 }

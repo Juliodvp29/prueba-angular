@@ -3,6 +3,8 @@
     <input type="text"
     class="form-control mb-3"
     placeholder="Search user"
+    #txtSearch
+    (keyup)="onSearchUser(txtSearch.value)"
     />
     <div class="table-content">
         <table class="table">
@@ -15,9 +17,9 @@
                 </tr>
             </thead>
             <tbody>
-                <tr *ngFor="let u of users " [ngStyle]="{'height':'100px'}">
+                <tr *ngFor="let u of users | filter:search" [ngStyle]="{'height':'100px'}">
                     <td>{{u.id}}</td>
-                    <td>{{u.name}}</td>
+                    <td>{{u.name | uppercase}}</td>
                     <td>{{u.username}}</td>
                     <td>{{u.email}}</td>
                 </tr>

@@ -1,1 +1,27 @@
-<p>contact works!</p>
+<div class="container">
+    <form [formGroup]="fg" (submit)="submit()">
+       <div class="form-group">
+        <div class="msg" *ngIf="fg.get('name')?.errors  && fg.get('name')?.dirty">
+            <strong *ngIf="fg.get('name')?.hasError('required')">Campo requerido*</strong>
+          </div>
+           <input class="form-control" formControlName="name" type="text" placeholder="name">
+       </div>
+       <div class="form-group">
+        <div class="msg" *ngIf="fg.get('email')?.errors  && fg.get('email')?.dirty">
+            <strong *ngIf="fg.get('email')?.hasError('required')">Campo requerido*</strong>
+            <strong *ngIf="fg.get('email')?.hasError('pattern')">Correo invalido*</strong>
+          </div>
+        <input  class="form-control" formControlName="email" type="email"placeholder="Email">
+    </div>
+    <div class="form-group">
+        <label>Coment</label>
+        <div class="msg" *ngIf="fg.get('coment')?.errors  && fg.get('coment')?.dirty">
+            <strong *ngIf="fg.get('coment')?.hasError('required')">Campo requerido*</strong>
+          </div>
+        <textarea formControlName="coment"  class="form-control" rows="3"></textarea>
+      </div>
+    <div class="form-group">
+          <button class="btn btn-primary">Send</button>
+    </div>
+    </form>
+</div>
